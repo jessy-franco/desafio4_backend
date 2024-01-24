@@ -1,19 +1,25 @@
 {
   "type": "module",
-  "name": "preentrega1",
+  "name": "desafio4",
   "version": "1.0.0",
-  "description": "primera pre entrega",
+  "description": "desafio4",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/app.js"
   },
   "author": "jesica franco",
   "license": "ISC",
   "keywords": [],
   "dependencies": {
     "express": "^4.18.2",
+    "express-handlebars": "^7.1.2",
+    "socket.io": "^4.7.4",
     "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
   },
   "repository": {
     "type": "git",
