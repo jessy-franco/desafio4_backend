@@ -1,10 +1,13 @@
 import { Router } from "express";
 import ProductManager from "../productManager.js";
+import { promises as fs } from "fs";
 
 const products = Router();
+
 const productManager = new ProductManager();
 
 /* muestra los prod */
+
 products.get("/", async (req, res) => {
     try {
         let products;
@@ -15,7 +18,11 @@ products.get("/", async (req, res) => {
             products = await productManager.getProducts();
         }
 
-        res.send(products);
+        /* Renderiza la página home.handlebars con la lista de productos */
+        res.render("home", {
+            productos: products,
+            style: "index.css",
+        });
     }
     catch (error) {
         console.error("Error al obtener productos:", error);
@@ -42,6 +49,8 @@ products.get("/:id", async (req, res) => {
         res.status(500).send("Error del servidor");
     }
 });
+
+
 /* ruta para agregar prod */
 products.post("/", async (req, res) => {
     try {
@@ -82,19 +91,37 @@ products.put("/:pid", async (req, res) => {
             return res.status(404).send({ error: "El producto no existe" });
         }
 
-        const updatedProduct = await productManager.updateProduct({ pid, ...updatedFields });
-        console.log("Producto actualizado:", updatedProduct);
-        if (updatedProduct) {
-            res.send(updatedProduct);
-        } else {
-            console.error("El producto no existe");
-            res.status(404).send({ error: "El producto no existe", details: error });
-        }
+        // Definir la función updateProduct fuera del bloque try
+        const updatedProducts = await updateProduct({ id: pid, ...updatedFields });
+
+
+
+        res.send(updatedProducts); // Enviar los productos actualizados como respuesta
     } catch (error) {
         console.error("Error al actualizar el producto:", error);
         res.status(500).send({ error: "Error del servidor", details: error.stack });
     }
 });
+
+
+async function updateProduct({ id, ...updatedFields }) {
+    const products = await productManager.readProducts();
+    const updatedProducts = products.map(product => {
+        if (product.id === id) {
+            return { ...product, ...updatedFields };
+        }
+        return product;
+    });
+
+    try {
+        await fs.writeFile(productManager.path, JSON.stringify(updatedProducts));
+        console.log("Producto actualizado:", updatedProducts);
+        return updatedProducts; // Devuelve los productos actualizados
+    } catch (error) {
+        console.error("Error al escribir el archivo:", error);
+        throw error;
+    }
+}
 
 /* Ruta para eliminar un producto por ID */
 products.delete("/:pid", async (req, res) => {
@@ -114,6 +141,19 @@ products.delete("/:pid", async (req, res) => {
         res.status(500).send("Error del servidor");
     }
 });
+
+products.use("/realtimeproducts", async (req, res) => {
+    try {
+        const productos = await productManager.getProducts();
+        res.render("realtimeproducts", { productos: productos, style: "index.css", });
+    }
+    catch (error) {
+        console.error("Error al obtener productos:", error);
+        res.status(500).send("Error interno del servidor");
+    }
+
+
+})
 
 
 export default products

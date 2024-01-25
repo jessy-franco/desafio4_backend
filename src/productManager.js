@@ -3,10 +3,10 @@ import { v4 as uuidv4 } from "uuid";
 
 class ProductManager {
     products = [];
-    patch;
+    path;
 
     constructor() {
-        this.patch = "./products.json";
+        this.path = "./products.json";
     }
 
     addProduct = async (product) => {
@@ -32,7 +32,7 @@ class ProductManager {
             currentProducts.push(newProduct);
 
             /* Escribir la lista completa de productos de vuelta al archivo */
-            await fs.writeFile(this.patch, JSON.stringify(currentProducts, null, 2));
+            await fs.writeFile(this.path, JSON.stringify(currentProducts, null, 2));
 
             /* Actualizar la lista de productos de ProductManager */
             this.products = currentProducts
@@ -46,7 +46,7 @@ class ProductManager {
     }
 
     readProducts = async () => {
-        const respuesta = await fs.readFile(this.patch, "utf-8")
+        const respuesta = await fs.readFile(this.path, "utf-8")
         this.products = JSON.parse(respuesta)
         return this.products;
     }
@@ -54,7 +54,7 @@ class ProductManager {
     getProducts = async () => {
         try {
             const respuesta2 = await this.readProducts();
-            console.log("La lista de productos es la siguiente: ", respuesta2);
+            /* console.log("La lista de productos es la siguiente: ", respuesta2); */
             return respuesta2;
         }
         catch (error) {
@@ -96,8 +96,10 @@ class ProductManager {
             else {
                 const productDelete = respuesta4.filter(products => products.id !== id);
                 this.products = productDelete;
-                await fs.writeFile(this.patch, JSON.stringify(productDelete))
+                await fs.writeFile(this.path, JSON.stringify(productDelete))
                 console.log("Producto eliminado")
+                // Emitir un evento "productDeleted" cuando se elimina un producto
+                socketServer.emit("productDeleted", id);
             }
 
         }
@@ -117,8 +119,14 @@ class ProductManager {
             return product;
         });
 
-        await fs.writeFile(this.patch, JSON.stringify(updatedProducts));
-        console.log("Producto actualizado:", updatedProducts);
+        try {
+            await fs.writeFile(this.path, JSON.stringify(updatedProducts));
+            console.log("Producto actualizado:", updatedProducts);
+        } catch (error) {
+            console.error("Error al escribir el archivo:", error);
+            throw error; // Re-lanza el error para que se maneje en la ruta correspondiente
+        }
+        
 
     }
 }
