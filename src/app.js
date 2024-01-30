@@ -3,6 +3,7 @@ import handlebars from "express-handlebars";
 import __dirname from "./utils.js";
 import products from "./routes/productsRouter.js"
 import carts from "./routes/cartsRouter.js"
+import views from "./routes/viewRouter.js"
 import { Server } from "socket.io";
 
 

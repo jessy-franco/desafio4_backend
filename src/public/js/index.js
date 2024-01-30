@@ -12,7 +12,7 @@ socket.on("updateProductList", (productos) => {
     productos.forEach(product => {
         const listItem = document.createElement("li");
         listItem.textContent = `${product.id} - ${product.title} - ${product.price}`;
-        
+
         /*crear eliminar producto en nuevo producto */
         const deleteButton = document.createElement("deleteProduct");
         deleteButton.textContent = "Eliminar";
@@ -54,16 +54,3 @@ document.addEventListener("click", (event) => {
         socket.emit("deleteProduct", productId);
     }
 });
-/* socket.on("productDeleted", (deletedProduct) => {
-    eliminarProducto(deletedProduct.id);
-});
-// Función para manejar la eliminación de productos desde la vista
-function eliminarProducto(productId) {
-    // Eliminar el elemento de la lista
-    const listItem = document.getElementById(productId);
-    if (listItem) {
-        listItem.remove();
-    } else {
-        console.error("No se encontró el elemento de la lista con el ID:", productId);
-    }
-} */

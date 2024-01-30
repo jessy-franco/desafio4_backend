@@ -18,11 +18,7 @@ products.get("/", async (req, res) => {
             products = await productManager.getProducts();
         }
 
-        /* Renderiza la página home.handlebars con la lista de productos */
-        res.render("home", {
-            productos: products,
-            style: "index.css",
-        });
+        
     }
     catch (error) {
         console.error("Error al obtener productos:", error);
@@ -142,7 +138,7 @@ products.delete("/:pid", async (req, res) => {
     }
 });
 
-products.use("/realtimeproducts", async (req, res) => {
+/* products.use("/realtimeproducts", async (req, res) => {
     try {
         const productos = await productManager.getProducts();
         res.render("realtimeproducts", { productos: productos, style: "index.css", });
@@ -153,7 +149,7 @@ products.use("/realtimeproducts", async (req, res) => {
     }
 
 
-})
+}) */
 
 
 export default products
