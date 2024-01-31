@@ -16,7 +16,6 @@ router.get("/", async (req, res) => {
 
 router.get("/realtimeproducts", async (req, res) => {
     try {
-        /* res.render("realtimeproducts"); */
         const productos = await productManager.getProducts();
         res.render("realtimeproducts", { productos: productos, style: "index.css", });
     } catch (error) {

@@ -1,6 +1,4 @@
 /* import { v4 as uuidv4 } from "uuid"; */
-/* import ProductManager from "../productManager.js";
-const productManager = new ProductManager();  */
 let contadorID = 1;
 
 function generarIDSecuencial() {
@@ -33,7 +31,7 @@ socket.on("updateProductList", (productos) => {
 
 
 
-// Evento para agregar producto
+ /* Evento para agregar producto */
 document.getElementById("addProductBtn").addEventListener("click", () => {
     const productName = document.getElementById("title").value;
     const productDescription = document.getElementById("description").value;
@@ -68,21 +66,7 @@ document.getElementById("addProductBtn").addEventListener("click", () => {
         alert("Por favor, ingrese los campos necesarios para agregar el producto.");
     }
 });
-// Función para eliminar un producto
-/* async function eliminarProducto(productId) {
-    try {
-        const deletedProduct = await productManager.deleteProductsById(productId);
-        if (deletedProduct) {
-            console.log("Producto eliminado:", deletedProduct);
-            // También puedes emitir un evento a través del socket si es necesario
-            socket.emit("productDeleted", { id: productId, message: `Producto eliminado con éxito: ${productId}` });
-        } else {
-            console.error("El producto no existe");
-        }
-    } catch (error) {
-        console.error("Error al eliminar el producto:", error);
-    }
-} */
+
 async function eliminarProducto(productId) {
     try {
         console.log("Producto eliminado:", productId);
