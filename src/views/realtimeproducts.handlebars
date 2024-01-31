@@ -1,7 +1,7 @@
 <h1>Listado de Productos en Tiempo Real</h1>
 <ul id="productListTime">
     {{#each productos}}
-        <li>{{this.id}} - {{this.title}}-  {{this.description}}- {{this.code}}- {{this.price}}-{{this.stock}}-{{this.category}}-{{this.thumbnails}} <button class="deleteProduct" onclick="eliminarProducto('{{this.id}}')">Eliminar</button></li>
+        <li>{{this.id}} - {{this.title}}-  {{this.description}}- {{this.code}}- {{this.price}}-{{this.stock}}-{{this.category}}-{{this.thumbnails}} <button class="delete-btn" data-product-id="{{this.id}}">Eliminar</button></li>
     {{/each}}
 </ul>
 <form id="productForm" action="/products.json" method="post">

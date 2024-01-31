@@ -75,12 +75,52 @@
     "thumbnails": ""
   },
   {
-    "title": "sombrilla",
-    "code": "bhaiksdhn",
-    "id": "d8c5eee2-2e47-4cd4-aef9-c6deacf80063",
-    "description": "de playa",
-    "price": "15467",
-    "stock": "78",
+    "title": "adorno velero",
+    "code": "ndiasndfo",
+    "id": "18375891-8db2-4005-82f2-84f2f40fe675",
+    "description": "de ceramica",
+    "price": "145233",
+    "stock": "12",
+    "category": "hogar",
+    "thumbnails": "none"
+  },
+  {
+    "title": "guitarra deco",
+    "code": "fnwefdwoejp",
+    "id": "bd100ff0-b49a-4f92-9251-18b70f18aecb",
+    "description": "de porcelana",
+    "price": "456213",
+    "stock": "45",
+    "category": "hogar",
+    "thumbnails": "NONE"
+  },
+  {
+    "title": "buda sen",
+    "code": "ñadodhiq",
+    "id": "d3fb3598-e16b-43dd-8d69-958c9db681d9",
+    "description": "de porcelana africana",
+    "price": "123546",
+    "stock": "46",
+    "category": "hogar",
+    "thumbnails": "none"
+  },
+  {
+    "title": "alfombra",
+    "code": "snidwiwdiew",
+    "id": "8adc06a4-a154-4519-81ab-cc910fa385ed",
+    "description": "de pelo de dinosaurio",
+    "price": "45789",
+    "stock": "56",
+    "category": "hogar",
+    "thumbnails": "none"
+  },
+  {
+    "title": "linterna",
+    "code": "jakbdbdi",
+    "id": "80e50035-e0b5-4508-bb03-0f961d143322",
+    "description": "de sal",
+    "price": "4556412",
+    "stock": "789",
     "category": "hogar",
     "thumbnails": "none"
   }

@@ -44,7 +44,7 @@ socketServer.on("connection", socket => {
         try {
             await productManager.addProduct(newProduct);
             const updatedProducts = await productManager.getProducts();
-            socket.emit("updateProductList", updatedProducts);
+            socketServer.emit("updateProductList", updatedProducts);
         }
         catch (error) {
             console.error("Error al agregar producto desde sockets:", error);
@@ -58,7 +58,8 @@ socketServer.on("connection", socket => {
             if (deletedProduct) {
                 console.log("Producto eliminado desde sockets:", deletedProduct);
                 /* Emitir un evento a la vista en tiempo real para actualizar la lista */
-                socket.emit("productDeleted", deletedProduct);
+                const updatedProducts = await productManager.getProducts();
+                socketServer.emit("updateProductList", updatedProducts);
             } else {
                 console.error("El producto no existe");
             }

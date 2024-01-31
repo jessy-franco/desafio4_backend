@@ -1,6 +1,6 @@
 /* import { v4 as uuidv4 } from "uuid"; */
 /* import ProductManager from "../productManager.js";
-const productManager = new ProductManager(); */
+const productManager = new ProductManager();  */
 let contadorID = 1;
 
 function generarIDSecuencial() {
@@ -20,8 +20,10 @@ socket.on("updateProductList", (productos) => {
         listItem.textContent = `${product.id} - ${product.title} - ${product.description}- ${product.code} - ${product.price}-${product.stock}-${product.category}-${product.thumbnails}`;
 
         /*crear eliminar producto en nuevo producto */
-        const deleteButton = document.createElement("deleteProduct");
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-btn");
         deleteButton.textContent = "Eliminar";
+        deleteButton.setAttribute("data-product-id", product.id);
         deleteButton.onclick = () => eliminarProducto(product.id);
 
         listItem.appendChild(deleteButton);
@@ -67,26 +69,40 @@ document.getElementById("addProductBtn").addEventListener("click", () => {
     }
 });
 // Función para eliminar un producto
-async function eliminarProducto(productId) {
+/* async function eliminarProducto(productId) {
     try {
         const deletedProduct = await productManager.deleteProductsById(productId);
         if (deletedProduct) {
             console.log("Producto eliminado:", deletedProduct);
             // También puedes emitir un evento a través del socket si es necesario
-            socket.emit("productDeleted", deletedProduct);
+            socket.emit("productDeleted", { id: productId, message: `Producto eliminado con éxito: ${productId}` });
         } else {
             console.error("El producto no existe");
         }
     } catch (error) {
         console.error("Error al eliminar el producto:", error);
     }
-}
-// Evento para eliminar producto
-document.addEventListener("click", (event) => {
-    console.log(event)
-    if (event.target.classList.contains("delete-btn")) {
-        const productId = event.target.getAttribute("data-product-id");
-        console.log(productId)
-        socket.emit("deleteProduct", productId);
+} */
+async function eliminarProducto(productId) {
+    try {
+        console.log("Producto eliminado:", productId);
+        socket.emit("deleteProduct",{ id: productId, message: `Producto eliminado con éxito: ${productId}` });
+    } catch (error) {
+        console.error("Error al eliminar el producto:", error);
     }
+}
+socket.on("productDeleted", ({ id, message }) => {
+    // Lógica para manejar el evento de eliminación de producto
+    document.addEventListener("click", (event) => {
+        if (event.target.classList.contains("delete-btn")) {
+            const productId = event.target.getAttribute("data-product-id");
+            console.log( `Producto eliminado con éxito: ${productId}`)
+            socket.emit("deleteProduct",{ id: productId, message: `Producto eliminado con éxito: ${productId}` });
+            console.log(message);
+        }
+    });
+    
 });
+
+
+
