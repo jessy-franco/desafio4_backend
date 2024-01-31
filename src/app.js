@@ -52,21 +52,27 @@ socketServer.on("connection", socket => {
 
     });
 
+    
     socket.on("deleteProduct", async (productId) => {
         try {
             const deletedProduct = await productManager.deleteProductsById(productId);
             if (deletedProduct) {
                 console.log("Producto eliminado desde sockets:", deletedProduct);
-                /* Emitir un evento a la vista en tiempo real para actualizar la lista */
-                const updatedProducts = await productManager.getProducts();
-                socketServer.emit("updateProductList", updatedProducts);
+                if (socketServer) {
+                    /* Evento en tiempo real para actualizar la lista */
+                    const updatedProducts = await productManager.getProducts();
+                    socketServer.emit("updateProductList", updatedProducts);
+                } else {
+                    console.error("socketServer no está definido. No se pudo emitir el evento.");
+                }
             } else {
                 console.error("El producto no existe");
             }
         } catch (error) {
             console.error("Error al eliminar el producto:", error);
         }
-    })
+    });
+    
 })
 
 

@@ -1,4 +1,4 @@
-/* import { v4 as uuidv4 } from "uuid"; */
+
 let contadorID = 1;
 
 function generarIDSecuencial() {
@@ -22,16 +22,19 @@ socket.on("updateProductList", (productos) => {
         deleteButton.classList.add("delete-btn");
         deleteButton.textContent = "Eliminar";
         deleteButton.setAttribute("data-product-id", product.id);
-        deleteButton.onclick = () => eliminarProducto(product.id);
+        deleteButton.onclick = () => deleteProduct(product.id);
 
         listItem.appendChild(deleteButton);
         productList.appendChild(listItem);
     });
 });
+/* Función para eliminar un producto en el cliente */
+function deleteProduct(productId) {
+    console.log(`Eliminar producto con ID: ${productId}`);
+    socket.emit("deleteProduct", productId);
+}
 
-
-
- /* Evento para agregar producto */
+/* Evento para agregar producto */
 document.getElementById("addProductBtn").addEventListener("click", () => {
     const productName = document.getElementById("title").value;
     const productDescription = document.getElementById("description").value;
@@ -40,8 +43,8 @@ document.getElementById("addProductBtn").addEventListener("click", () => {
     const productStock = document.getElementById("stock").value;
     const productCategory = document.getElementById("category").value;
     const productThumbnails = document.getElementById("thumbnails").value;
-    const productId =  generarIDSecuencial();
-    if (productName.trim() !== ""&& productDescription.trim() !=="" && productCode.trim() !== "" && productPrice.trim() !== "" && productStock.trim() !== "" && productCategory.trim() !== "" && productThumbnails.trim() === thumbnails || [] ) {
+    const productId = generarIDSecuencial();
+    if (productName.trim() !== "" && productDescription.trim() !== "" && productCode.trim() !== "" && productPrice.trim() !== "" && productStock.trim() !== "" && productCategory.trim() !== "" && productThumbnails.trim() === thumbnails || []) {
         socket.emit("addProduct", {
             id: productId,
             title: productName,
@@ -56,7 +59,7 @@ document.getElementById("addProductBtn").addEventListener("click", () => {
         // Limpiar los campos después de agregar el producto
         document.getElementById("title").value = "";
         document.getElementById("description").value = "";
-        document.getElementById("code").value ="";
+        document.getElementById("code").value = "";
 
         document.getElementById("price").value = "";
         document.getElementById("stock").value = "";
@@ -67,26 +70,6 @@ document.getElementById("addProductBtn").addEventListener("click", () => {
     }
 });
 
-async function eliminarProducto(productId) {
-    try {
-        console.log("Producto eliminado:", productId);
-        socket.emit("deleteProduct",{ id: productId, message: `Producto eliminado con éxito: ${productId}` });
-    } catch (error) {
-        console.error("Error al eliminar el producto:", error);
-    }
-}
-socket.on("productDeleted", ({ id, message }) => {
-    // Lógica para manejar el evento de eliminación de producto
-    document.addEventListener("click", (event) => {
-        if (event.target.classList.contains("delete-btn")) {
-            const productId = event.target.getAttribute("data-product-id");
-            console.log( `Producto eliminado con éxito: ${productId}`)
-            socket.emit("deleteProduct",{ id: productId, message: `Producto eliminado con éxito: ${productId}` });
-            console.log(message);
-        }
-    });
-    
-});
 
 
 

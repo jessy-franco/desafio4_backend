@@ -139,7 +139,7 @@ class ProductManager {
 
 /* Agregando productos y mostrandolos en la consola para comprobar funcionalidades */
 
-/* const manager = new ProductManager(); */
+const manager = new ProductManager();
 /* await manager.addProduct("aspiradora", "aspiradora de solidos y liquidos", 250000, "sin imagen", 1224, 25);
 await manager.addProduct("lavadora", "lava secadora", 85000, "sin imagen", 1285, 30);
 await manager.addProduct("lavador", "lavador  verde", 58000, "sin imagen", 1289, 10);  */

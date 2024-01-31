@@ -1,8 +1,6 @@
-export default  {
+
+export default {
     // ...
-    resolve: {
-        extensions: ['.js'],
-    },
     module: {
         rules: [
             {
@@ -15,7 +13,10 @@ export default  {
                     },
                 },
             },
+            {
+                test: /\.handlebars$/,
+                use: "handlebars-loader", // Añade esta regla
+            },
         ],
     },
 };
-

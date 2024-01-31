@@ -1,127 +1,137 @@
 [
-  {
-    "title": "pelota",
-    "code": "puiukkliy",
-    "description": "de playa roja",
-    "price": 5000,
-    "stock": 24,
-    "category": "hogar",
-    "thumbnails": [],
-    "status": true,
-    "id": "d007a087-daeb-4f0c-8439-c05d0d2b3a11"
-  },
-  {
-    "title": "pileta",
-    "code": "uuuuukky",
-    "description": "de lona azul",
-    "price": 85.789,
-    "stock": 12,
-    "category": "hogar",
-    "thumbnails": [],
-    "status": true,
-    "id": "ff83b507-4191-48fe-a496-0fe9cd1748dc"
-  },
-  {
-    "title": "mesa",
-    "code": "puoooooliy",
-    "description": "de madera de pino, rustica",
-    "price": 58000,
-    "stock": 2,
-    "category": "hogar",
-    "thumbnails": [
-      "https://http2.mlstatic.com/D_NQ_NP_2X_968441-MLA71657204729_092023-F.webp"
-    ],
-    "status": true,
-    "id": "93561e43-147a-4bfa-b77a-dad842e5b074"
-  },
-  {
-    "title": "mesa",
-    "code": "biadwnq",
-    "id": "cf1aa032-8664-41e6-a231-0d7bb7bfdd63",
-    "description": "de cemento",
-    "price": "45600",
-    "stock": "3",
-    "category": "hogar",
-    "thumbnails": "none"
-  },
-  {
-    "title": "ventilador",
-    "code": "hrtgerge",
-    "id": "dfb2538b-0653-4126-ad8e-7aad0b2f501c",
-    "description": "60 pulgadas",
-    "price": "4585555",
-    "stock": "3",
-    "category": "hogar",
-    "thumbnails": "none"
-  },
-  {
-    "title": "lampara",
-    "code": "sndldmqp",
-    "id": "7807a349-27ff-4ede-a20f-d92ccd92d074",
-    "description": "de kerosene",
-    "price": "12566",
-    "stock": "7",
-    "category": "hogar",
-    "thumbnails": "none"
-  },
-  {
-    "title": "canasta",
-    "code": "dsafdiaskdnq",
-    "id": "812cc5a7-0fc2-49b1-9826-c4ead0a59290",
-    "description": "de mimbre",
-    "price": "12546",
-    "stock": "9",
-    "category": "hogar",
-    "thumbnails": ""
-  },
-  {
-    "title": "adorno velero",
-    "code": "ndiasndfo",
-    "id": "18375891-8db2-4005-82f2-84f2f40fe675",
-    "description": "de ceramica",
-    "price": "145233",
-    "stock": "12",
-    "category": "hogar",
-    "thumbnails": "none"
-  },
-  {
-    "title": "guitarra deco",
-    "code": "fnwefdwoejp",
-    "id": "bd100ff0-b49a-4f92-9251-18b70f18aecb",
-    "description": "de porcelana",
-    "price": "456213",
-    "stock": "45",
-    "category": "hogar",
-    "thumbnails": "NONE"
-  },
-  {
-    "title": "buda sen",
-    "code": "ñadodhiq",
-    "id": "d3fb3598-e16b-43dd-8d69-958c9db681d9",
-    "description": "de porcelana africana",
-    "price": "123546",
-    "stock": "46",
-    "category": "hogar",
-    "thumbnails": "none"
-  },
-  {
-    "title": "alfombra",
-    "code": "snidwiwdiew",
-    "id": "8adc06a4-a154-4519-81ab-cc910fa385ed",
-    "description": "de pelo de dinosaurio",
-    "price": "45789",
-    "stock": "56",
-    "category": "hogar",
-    "thumbnails": "none"
-  },
-  {
-    "title": "linterna",
-    "code": "jakbdbdi",
-    "id": "80e50035-e0b5-4508-bb03-0f961d143322",
-    "description": "de sal",
-    "price": "4556412",
-    "stock": "789",
-    "category": "hogar",
-    "thumbnails": "none"
-  }
+    {
+        "title": "pelota",
+        "code": "puiukkliy",
+        "description": "de playa roja",
+        "price": 5000,
+        "stock": 24,
+        "category": "hogar",
+        "thumbnails": [],
+        "status": true,
+        "id": "d007a087-daeb-4f0c-8439-c05d0d2b3a11"
+    },
+    {
+        "title": "pileta",
+        "code": "uuuuukky",
+        "description": "de lona azul",
+        "price": 85.789,
+        "stock": 12,
+        "category": "hogar",
+        "thumbnails": [],
+        "status": true,
+        "id": "ff83b507-4191-48fe-a496-0fe9cd1748dc"
+    },
+    {
+        "title": "mesa",
+        "code": "puoooooliy",
+        "description": "de madera de pino, rustica",
+        "price": 58000,
+        "stock": 2,
+        "category": "hogar",
+        "thumbnails": [
+            "https://http2.mlstatic.com/D_NQ_NP_2X_968441-MLA71657204729_092023-F.webp"
+        ],
+        "status": true,
+        "id": "93561e43-147a-4bfa-b77a-dad842e5b074"
+    },
+    {
+        "title": "mesa",
+        "code": "biadwnq",
+        "id": "cf1aa032-8664-41e6-a231-0d7bb7bfdd63",
+        "description": "de cemento",
+        "price": "45600",
+        "stock": "3",
+        "category": "hogar",
+        "thumbnails": "none"
+    },
+    {
+        "title": "ventilador",
+        "code": "hrtgerge",
+        "id": "dfb2538b-0653-4126-ad8e-7aad0b2f501c",
+        "description": "60 pulgadas",
+        "price": "4585555",
+        "stock": "3",
+        "category": "hogar",
+        "thumbnails": "none"
+    },
+    {
+        "title": "lampara",
+        "code": "sndldmqp",
+        "id": "7807a349-27ff-4ede-a20f-d92ccd92d074",
+        "description": "de kerosene",
+        "price": "12566",
+        "stock": "7",
+        "category": "hogar",
+        "thumbnails": "none"
+    },
+    {
+        "title": "buda sen",
+        "code": "ñadodhiq",
+        "id": "d3fb3598-e16b-43dd-8d69-958c9db681d9",
+        "description": "de porcelana africana",
+        "price": "123546",
+        "stock": "46",
+        "category": "hogar",
+        "thumbnails": "none"
+    },
+    {
+        "title": "alfombra",
+        "code": "snidwiwdiew",
+        "id": "8adc06a4-a154-4519-81ab-cc910fa385ed",
+        "description": "de pelo de dinosaurio",
+        "price": "45789",
+        "stock": "56",
+        "category": "hogar",
+        "thumbnails": "none"
+    },
+    {
+        "title": "pinguino",
+        "code": "ndowede",
+        "id": "077500e5-f604-4b15-9a18-42f2c59d5d32",
+        "description": "de peluche",
+        "price": "456632",
+        "stock": "87",
+        "category": "hogar",
+        "thumbnails": "none"
+    },
+    {
+        "title": "mampara de baño",
+        "code": "diehfdiwdo",
+        "id": "6dd5070b-8cd4-4323-9328-82685f8cd6c8",
+        "description": "de madera rustica",
+        "price": "982222",
+        "stock": "98",
+        "category": "hogar",
+        "thumbnails": "none"
+    },
+    {
+        "title": "mesa de pingpong",
+        "code": "lsndoiweoo",
+        "id": "402e7aff-1b5d-46bb-9627-87222d9b129e",
+        "description": "de madera bañada en oro",
+        "price": "564646446464136",
+        "stock": "7",
+        "category": "deportes",
+        "thumbnails": "none"
+    },
+    {
+        "title": "jarra dragon",
+        "code": "hihoihoiho",
+        "id": "448ac46e-aa79-469d-b5b9-e540783017e5",
+        "description": "jarron de dinastia china",
+        "price": "5464646464",
+        "stock": "7",
+        "category": "deco",
+        "thumbnails": ""
+    },
+    {
+        "title": "portaretrato",
+        "code": "jandsdoao",
+        "id": "0c3bcec6-6fca-4e47-aa4e-592a0568c7e7",
+        "description": "de acero",
+        "price": "546464",
+        "stock": "2",
+        "category": "deco",
+        "thumbnails": "none"
+    }
 ]
