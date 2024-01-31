@@ -7,7 +7,6 @@ const products = Router();
 const productManager = new ProductManager();
 
 /* muestra los prod */
-
 products.get("/", async (req, res) => {
     try {
         let products;
@@ -138,18 +137,7 @@ products.delete("/:pid", async (req, res) => {
     }
 });
 
-/* products.use("/realtimeproducts", async (req, res) => {
-    try {
-        const productos = await productManager.getProducts();
-        res.render("realtimeproducts", { productos: productos, style: "index.css", });
-    }
-    catch (error) {
-        console.error("Error al obtener productos:", error);
-        res.status(500).send("Error interno del servidor");
-    }
 
-
-}) */
 
 
 export default products

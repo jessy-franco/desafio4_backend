@@ -1,7 +1,7 @@
-import express from "express";
+import { Router } from "express";
 import ProductManager from "../productManager.js";
 
-const router = express.Router();
+const router = Router();
 const productManager = new ProductManager();
 
 router.get("/", async (req, res) => {
@@ -16,7 +16,9 @@ router.get("/", async (req, res) => {
 
 router.get("/realtimeproducts", async (req, res) => {
     try {
-        res.render("realtimeproducts");
+        /* res.render("realtimeproducts"); */
+        const productos = await productManager.getProducts();
+        res.render("realtimeproducts", { productos: productos, style: "index.css", });
     } catch (error) {
         console.error("Error al renderizar la vista de productos en tiempo real", error);
         res.status(500).json({ error: "Error interno del servidor" });

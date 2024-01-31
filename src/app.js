@@ -3,15 +3,16 @@ import handlebars from "express-handlebars";
 import __dirname from "./utils.js";
 import products from "./routes/productsRouter.js"
 import carts from "./routes/cartsRouter.js"
-import views from "./routes/viewRouter.js"
+import views from "./routes/viewsRouter.js"
 import { Server } from "socket.io";
-
+import ProductManager from "./productManager.js";
 
 
 
 const app = express();
 const routerproducts = products;
 const routercarts = carts
+const productManager = new ProductManager();
 
 
 app.engine("handlebars", handlebars.engine());
@@ -27,7 +28,7 @@ app.use("/static", express.static(__dirname + "/public"))
 /* routers */
 app.use("/api/products", routerproducts)
 app.use("/api/carts", routercarts)
-app.use("/realtimeproducts", routerproducts)
+app.use("/", views)
 
 
 const server = app.listen(8080, () => {
@@ -41,11 +42,11 @@ socketServer.on("connection", socket => {
 
     socket.on("addProduct", async (newProduct) => {
         try {
-            const productoNuevo = await productManager.addProducts(newProduct);
-
-            socket.emit("updateProducts", productoNuevo);
+            await productManager.addProduct(newProduct);
+            const updatedProducts = await productManager.getProducts();
+            socket.emit("updateProductList", updatedProducts);
         }
-        catch(error) {
+        catch (error) {
             console.error("Error al agregar producto desde sockets:", error);
         }
 

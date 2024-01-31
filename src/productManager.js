@@ -4,9 +4,11 @@ import { v4 as uuidv4 } from "uuid";
 class ProductManager {
     products = [];
     path;
+    socketServer;
 
-    constructor() {
+    constructor(socketServer) {
         this.path = "./products.json";
+        this.socketServer = socketServer;
     }
 
     addProduct = async (product) => {
@@ -98,8 +100,12 @@ class ProductManager {
                 this.products = productDelete;
                 await fs.writeFile(this.path, JSON.stringify(productDelete))
                 console.log("Producto eliminado")
-                // Emitir un evento "productDeleted" cuando se elimina un producto
-                socketServer.emit("productDeleted", id);
+            /* Evento "productDeleted" cuando se elimina un producto */
+                if (this.socketServer) {
+                    this.socketServer.emit("productDeleted", id);
+                } else {
+                    console.error("socketServer no está definido. No se pudo emitir el evento.");
+                }
             }
 
         }
@@ -124,7 +130,7 @@ class ProductManager {
             console.log("Producto actualizado:", updatedProducts);
         } catch (error) {
             console.error("Error al escribir el archivo:", error);
-            throw error; // Re-lanza el error para que se maneje en la ruta correspondiente
+            throw error; 
         }
         
 

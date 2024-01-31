@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./src/app.js"
+    "dev": "nodemon ./src/app.js",
+    "build": "webpack"
   },
   "author": "jesica franco",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "express": "^4.18.2",
     "express-handlebars": "^7.1.2",
     "socket.io": "^4.7.4",
+    "socket.io-client": "^4.7.4",
     "uuid": "^9.0.1"
   },
   "devDependencies": {

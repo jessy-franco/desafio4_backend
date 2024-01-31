@@ -1,1 +1,87 @@
-[{"title":"pelota","code":"puiukkliy","description":"de playa roja","price":5000,"stock":24,"category":"hogar","thumbnails":[],"status":true,"id":"d007a087-daeb-4f0c-8439-c05d0d2b3a11"},{"title":"pileta","code":"uuuuukky","description":"de lona azul","price":85.789,"stock":12,"category":"hogar","thumbnails":[],"status":true,"id":"ff83b507-4191-48fe-a496-0fe9cd1748dc"},{"title":"mesa","code":"puoooooliy","description":"de madera de pino, rustica","price":58000,"stock":2,"category":"hogar","thumbnails":["https://http2.mlstatic.com/D_NQ_NP_2X_968441-MLA71657204729_092023-F.webp"],"status":true,"id":"93561e43-147a-4bfa-b77a-dad842e5b074"}]
+[
+  {
+    "title": "pelota",
+    "code": "puiukkliy",
+    "description": "de playa roja",
+    "price": 5000,
+    "stock": 24,
+    "category": "hogar",
+    "thumbnails": [],
+    "status": true,
+    "id": "d007a087-daeb-4f0c-8439-c05d0d2b3a11"
+  },
+  {
+    "title": "pileta",
+    "code": "uuuuukky",
+    "description": "de lona azul",
+    "price": 85.789,
+    "stock": 12,
+    "category": "hogar",
+    "thumbnails": [],
+    "status": true,
+    "id": "ff83b507-4191-48fe-a496-0fe9cd1748dc"
+  },
+  {
+    "title": "mesa",
+    "code": "puoooooliy",
+    "description": "de madera de pino, rustica",
+    "price": 58000,
+    "stock": 2,
+    "category": "hogar",
+    "thumbnails": [
+      "https://http2.mlstatic.com/D_NQ_NP_2X_968441-MLA71657204729_092023-F.webp"
+    ],
+    "status": true,
+    "id": "93561e43-147a-4bfa-b77a-dad842e5b074"
+  },
+  {
+    "title": "mesa",
+    "code": "biadwnq",
+    "id": "cf1aa032-8664-41e6-a231-0d7bb7bfdd63",
+    "description": "de cemento",
+    "price": "45600",
+    "stock": "3",
+    "category": "hogar",
+    "thumbnails": "none"
+  },
+  {
+    "title": "ventilador",
+    "code": "hrtgerge",
+    "id": "dfb2538b-0653-4126-ad8e-7aad0b2f501c",
+    "description": "60 pulgadas",
+    "price": "4585555",
+    "stock": "3",
+    "category": "hogar",
+    "thumbnails": "none"
+  },
+  {
+    "title": "lampara",
+    "code": "sndldmqp",
+    "id": "7807a349-27ff-4ede-a20f-d92ccd92d074",
+    "description": "de kerosene",
+    "price": "12566",
+    "stock": "7",
+    "category": "hogar",
+    "thumbnails": "none"
+  },
+  {
+    "title": "canasta",
+    "code": "dsafdiaskdnq",
+    "id": "812cc5a7-0fc2-49b1-9826-c4ead0a59290",
+    "description": "de mimbre",
+    "price": "12546",
+    "stock": "9",
+    "category": "hogar",
+    "thumbnails": ""
+  },
+  {
+    "title": "sombrilla",
+    "code": "bhaiksdhn",
+    "id": "d8c5eee2-2e47-4cd4-aef9-c6deacf80063",
+    "description": "de playa",
+    "price": "15467",
+    "stock": "78",
+    "category": "hogar",
+    "thumbnails": "none"
+  }
+]

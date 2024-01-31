@@ -1,17 +1,29 @@
 <h1>Listado de Productos en Tiempo Real</h1>
 <ul id="productListTime">
     {{#each productos}}
-        <li>{{this.id}} - {{this.title}} - {{this.price}} <button class="deleteProduct" onclick="eliminarProducto('{{this.id}}')">Eliminar</button></li>
+        <li>{{this.id}} - {{this.title}}-  {{this.description}}- {{this.code}}- {{this.price}}-{{this.stock}}-{{this.category}}-{{this.thumbnails}} <button class="deleteProduct" onclick="eliminarProducto('{{this.id}}')">Eliminar</button></li>
     {{/each}}
 </ul>
-<form id="productForm" action="/addProduct" method="post">
+<form id="productForm" action="/products.json" method="post">
     <label for="productName">Nombre:</label>
-    <input type="text" id="productName" name="productName" required>
+    <input type="text" id="title" name="productName" required>
+    <label for="productDescription">Descripcion del producto:</label>
+    <input type="text" id="description" name="productDescription" required>
+    <label for="productCode">Codigo de producto:</label>
+    <input type="text" id="code" name="productCode" required>
     <label for="productPrice">Precio:</label>
-    <input type="number" id="productPrice" name="productPrice" required>
+    <input type="number" id="price" name="productPrice" required>
+    <label for="productStock">Stock:</label>
+    <input type="number" id="stock" name="productStock" required>
+    <label for="productCategory">Categoria del producto:</label>
+    <input type="text" id="category" name="productCategory" required>
+    <label for="productThumbnails">Imagen del producto:</label>
+    <input type="text" id="thumbnails" name="productThumbnails" >
     <button type="button" id="addProductBtn">Agregar Producto</button>
 </form>
 
 
 <script src="/socket.io/socket.io.js"></script>
-<script src="../public/js/index.js"></script>
+
+<script type="module" src="/static/js/index.js"></script>
+
